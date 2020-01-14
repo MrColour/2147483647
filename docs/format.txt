@@ -1,0 +1,51 @@
+/**************************************************************
+ * FILENAME:    format.txt            REF: DF_FORMAT_docs
+ *
+ * DESCRIPTION:
+ *      File detailing the rules and format by which this repository
+ *      will abide by.
+ *
+ * ENVIRONMENT:
+ *      Windows 10 Home v1803 x64
+ *      Visual Studio Code 1.41.1
+ *           Extensions: ms-vscode-remote.remote-wsl
+ *
+ * VERSION:
+ *      0.0.0.1
+ *
+ * AUTHOR(s):
+ *      Kevin Colour
+ *
+ * DATES:
+ *      Created:			Sat Jan 11 19:06:34 PST 2020
+ *		Verified Execute:	Sat Jan 11 19:07:11 PST 2020
+ *
+****************************************************************/
+
+1. Naming conventions for the projects are in the form of XXX_*
+	where XXX is an integer that corresponds to number of completed projects plus one,
+	and * is a <NAME>.
+2. A <NAME> shall be a string of lowercase alphanumerical ascii characters.
+3. These are to be the main folders where different versions and sub versions
+	of that project are to be included.
+4. Each of these folders shall have task list on README.md.
+5. These folders will hold versions and subversions of the main topic. These versions
+	are self contained and completed <ATTEMPT>
+6. The naming conventions of <ATTEMPT> shall be VXX_XX_* where each X in vXX_XX
+	is an integer between 0 and 9 (inclusively) and * is a <NAME>. <NAME> must be
+	an awesome name. vXX_XX shall follow the convention of MAJOR number followed by
+	MINOR number as given by version numbering.
+7. A project is to be considered finished if an <ATTEMPT> is finsihed. The conditions
+	for an <ATTEMPT> to be finished are the following:
+	- It must have an awesome name.
+	- It must have a completed GOAL.md file.
+	- The following directories: srcs, includes, lib, bin.
+	- A file named `main.c` in directory `srcs` that defines C function `main`.
+	- A functional Makefile with the options: all, clean, fclean, re.
+	- An functional executable named <ATTEMPT> that accomplishes the points given by GOAL.md.
+	- A 21 second <GIF>, located in the `resource` folder of this repository named <ATTEMPT>.
+	- Its files must follow the conventions and rules laid out in this file (format.txt).
+8. Its files must follow the template(s) derived from the examples in the folder `docs`.
+9. Every line of code must be written with love.
+10. The `docs` folder shall contain the templates to be followed.
+

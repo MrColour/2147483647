@@ -1,0 +1,40 @@
+/**************************************************************
+ * FILENAME:    reference_appendix.txt	REF: DF_reference_docs
+ *
+ * DESCRIPTION:
+ *      What the REF means.
+ *
+ * ENVIRONMENT:
+ *      Windows 10 Home v1803 x64
+ *      Visual Studio Code 1.41.1
+ *           Extensions: ms-vscode-remote.remote-wsl
+ *
+ * VERSION:
+ *      0.0.0.1
+ *
+ * AUTHOR(s):
+ *      Kevin Colour
+ *
+ * DATES:
+ *      Created:			Sat Jan 11 20:52:02 PST 2020
+ *		Verified Execute:	Sat Jan 11 20:52:02 PST 2020
+ *
+****************************************************************/
+
+1. The REF tags are split into three major catagories.
+	- <ID>
+	- <FILE_WORD>
+	- <LOCATION>
+
+2. The following are the allowed <ID>'s and their meaning:
+	- AS: Source code of a project <ATTEMPT>.
+	- ASM: `main.c` file of a project <ATTEMPT>.
+	- AG: GOAL.md file of a proect <ATTEMPT>.
+	- DF: document type file, with information about format.
+	- MK: Makefile of a project <ATTEMPT>
+
+3. <FILE_WORD> is one word that describes the general purpose
+	of the file.
+
+4. <LOCATION> shall be the first folder in which that file is found, followed
+	by major folder if necessary.
