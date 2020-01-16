@@ -23,15 +23,37 @@
 
 #include "pseudo_ralph.h"
 
-#define OPTION 0
-#define WRONG -1
-#define RIGHT  1
+void	print_char_set(int *char_state)
+{
+	int		i;
+	char	*wrong;
+	char	*green;
+
+	wrong = intesity_code(120);
+	green = color_code(30, 200, 50);
+	i = 'a';
+	while (i <= 'z')
+	{
+		if (char_state[i] == OPTION)
+			printf("%c "ANSI_RESET, i);
+		else if (char_state[i] == WRONG)
+			printf("%s%c "ANSI_RESET, wrong, i);
+		else if (char_state[i] == RIGHT)
+			printf("%s%c "ANSI_RESET, green, i);
+		else
+			printf("ERROR!\n");
+		i++;
+	}
+}
 
 int		main(void)
 {
-	printf("%s", intesity_code(120));
-	printf("Working or does it re?\n");
-	printf("%s", color_code(0, 255, 255));
-	printf("Working or does it re?\n");
+	int		char_state[128];
+
+	bzero(char_state, sizeof(char_state));
+	char_state['a'] = WRONG;
+	char_state['p'] = WRONG;
+	char_state['w'] = RIGHT;
+	print_char_set(char_state);
 	return (0);
 }
