@@ -59,7 +59,7 @@ re: fclean all
 
 save:
 	git add .
-	git commit -m "GIT 001:pseudo_ralph $(COUNT)"
+	git commit -m "GIT: $(COUNT) 001:pseudo_ralph: $(MSG)"
 	git push
 
 .PHONY: clean fclean all re
