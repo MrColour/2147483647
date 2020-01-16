@@ -21,10 +21,17 @@
  *
 ****************************************************************/
 
-#include <stdio.h>
+#include "pseudo_ralph.h"
 
-int	main(void)
+#define OPTION 0
+#define WRONG -1
+#define RIGHT  1
+
+int		main(void)
 {
+	printf("%s", intesity_code(120));
+	printf("Working or does it re?\n");
+	printf("%s", color_code(0, 255, 255));
 	printf("Working or does it re?\n");
 	return (0);
 }

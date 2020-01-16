@@ -30,19 +30,24 @@ INCLUDES = -I includes
 BINARY_DIR = bin/
 
 SRCS_FILES = \
-	main
+	main \
+	output_styling
 
 SOURCE_FILES = $(addsuffix .c, $(addprefix srcs/, $(SRCS_FILES)))
-OBJS = $(addsuffix .o, $(SRCS_FILES))
+OBJS_FILES = $(addsuffix .o, $(SRCS_FILES))
+OBJS = $(addsuffix .o, $(addprefix $(BINARY_DIR), $(SRCS_FILES)))
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	gcc -o $(NAME) $(FLAGS) $(INCLUDES) $(BINARY_DIR)$(OBJS)
+$(NAME): $(OBJS_FILES)
+	gcc -o $(NAME) $(FLAGS) $(INCLUDES) $(OBJS)
 
-$(OBJS): $(SOURCE_FILES)
+$(OBJS_FILES): $(BINARY_DIR)
 	gcc -c $(FLAGS) $(INCLUDES) $(SOURCE_FILES)
-	mv $(OBJS) $(BINARY_DIR)
+	mv $(OBJS_FILES) $(BINARY_DIR)
+
+$(BINARY_DIR):
+	mkdir $(BINARY_DIR)
 
 clean:
 	rm -f $(BINARY_DIR)$(OBJS)
@@ -51,5 +56,10 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+save:
+	git add .
+	git commit -m "GIT 001:pseudo_ralph $(COUNT)"
+	git push
 
 .PHONY: clean fclean all re
