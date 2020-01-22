@@ -67,10 +67,11 @@ char	*strlwr(const char *str)
 	return (result);
 }
 
+#define CURSOR_CONTROL_INIT() int cursor_pos = 0;
 #define cur_for(x) printf("\033[%dC", (x))
 #define cur_back(x) printf("\033[%dD", (x))
-#define cur_up(x) printf("\033[%dA", (x))
-#define cur_down(x) printf("\033[%dB", (x))
+#define cur_up(x) printf("\033[%dA", (x)); cursor_pos++;
+#define cur_down(x) printf("\033[%dB", (x)) cursor_pos++;
 
 int		main(void)
 {
@@ -84,6 +85,8 @@ int		main(void)
 	int	i;
 	int	guess;
 	struct timespec delta;
+
+	CURSOR_CONTROL_INIT()
 	delta.tv_sec = 0;
 	delta.tv_nsec = 100;
 
