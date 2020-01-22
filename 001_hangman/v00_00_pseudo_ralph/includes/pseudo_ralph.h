@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   pseudo_ralph.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kmira <kmira@student.42.fr>                +#+  +:+       +#+        */
+/*   By: xinu <xinu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/16 02:53:42 by kmira             #+#    #+#             */
-/*   Updated: 2020/01/21 22:21:19 by kmira            ###   ########.fr       */
+/*   Updated: 2020/01/21 23:35:01 by xinu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PSEUDO_RALPH_H
 # define PSEUDO_RALPH_H
+
+#define _GNU_SOURCE
 
 # include <stdio.h>
 # include <stdint.h>

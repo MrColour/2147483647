@@ -84,15 +84,11 @@ int		main(void)
 
 	int	i;
 	int	guess;
-	struct timespec delta;
 
 	CURSOR_CONTROL_INIT()
-	delta.tv_sec = 0;
-	delta.tv_nsec = 100;
 
 	i = 0;
 	str = strlwr(phrase);
-	printf("String is: %s\n", str);
 	while (i < 20)
 	{
 		guess = (rand() % ('z' - 'a')) + 'a';
@@ -100,13 +96,12 @@ int		main(void)
 			char_state[(int)guess] = RIGHT;
 		else
 			char_state[(int)guess] = WRONG;
+		printf("\r");
 		printf("[GUESS: %c]", guess);
 		cur_down(1);
-		printf("\r");
 		print_char_set(char_state);
 		printf("\n");
 		cur_up(2);
-		cur_down(2);
 		fflush(stdout);
 		usleep(300000);
 		i++;
