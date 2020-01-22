@@ -97,11 +97,13 @@ int		main(void)
 			char_state[(int)guess] = RIGHT;
 		else
 			char_state[(int)guess] = WRONG;
-		printf("[GUESS: %c] \n", guess);
+		printf("[GUESS: %c]", guess);
+		cur_down(1);
 		printf("\r");
 		print_char_set(char_state);
 		printf("\n");
 		cur_up(2);
+		cur_down(2);
 		fflush(stdout);
 		usleep(300000);
 		i++;
