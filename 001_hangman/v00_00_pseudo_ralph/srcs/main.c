@@ -5,12 +5,11 @@
  *      Entry point for <ATTEMPT>: pseudo_ralph
  *
  * ENVIRONMENT:
- *      Windows 10 Home v1803 x64
- *      Visual Studio Code 1.41.1
- *           Extensions: ms-vscode-remote.remote-wsl
+ *      macOS High Sierra Version 10.13.4
+ *      Visual Studio Code 1.Version: 1.38.1
  *
  * VERSION:
- *      0.0.0.1
+ *      0.0.0.2
  *
  * AUTHOR(s):
  *      Kevin Colour
@@ -22,6 +21,7 @@
 ****************************************************************/
 
 #include "pseudo_ralph.h"
+
 
 void	print_char_set(int *char_state)
 {
@@ -46,14 +46,59 @@ void	print_char_set(int *char_state)
 	}
 }
 
+#include <unistd.h>
+#include <stdlib.h>
+#include <ctype.h>
+
+char	*strlwr(const char *str)
+{
+	size_t	i;
+	size_t	length;
+	char	*result;
+
+	i = 0;
+	length = strlen(str);
+	result = malloc(sizeof(*result) * (length + 1));
+	while (i < length)
+	{
+		result[i] = tolower(str[i]);
+		i++;
+	}
+	result[i] = '\0';
+	return (result);
+}
+
+#define cur_for(x) printf("\033[%dC", (x))
+#define cur_back(x) printf("\033[%dD", (x))
+
 int		main(void)
 {
 	int		char_state[128];
 
+	char	phrase[] = "Hangman game";
+	char	*str;
+
 	bzero(char_state, sizeof(char_state));
-	char_state['a'] = WRONG;
-	char_state['p'] = WRONG;
-	char_state['w'] = RIGHT;
-	print_char_set(char_state);
+
+	int	i;
+	int	guess;
+
+	i = 0;
+	str = strlwr(phrase);
+	printf("String is: %s\n", str);
+	while (i < 20)
+	{
+		guess = (rand() % ('z' - 'a')) + 'a';
+		if (strchr(str, guess) != NULL)
+			char_state[(int)guess] = RIGHT;
+		else
+			char_state[(int)guess] = WRONG;
+		printf("\r");
+		printf("[GUESS: %c] ", guess);
+		print_char_set(char_state);
+		fflush(stdout);
+		sleep(1);
+		i++;
+	}
 	return (0);
 }

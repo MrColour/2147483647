@@ -41,7 +41,7 @@
 	- It must have a completed GOAL.md file.
 	- The following directories: srcs, includes, lib, bin.
 	- A file named `main.c` in directory `srcs` that defines C function `main`.
-	- A functional Makefile with the options: all, clean, fclean, re.
+	- A functional Makefile with the options: all, clean, fclean, re, save.
 	- An functional executable named <ATTEMPT> that accomplishes the points given by GOAL.md.
 	- A 21 second <GIF>, located in the `resource` folder of this repository named <ATTEMPT>.
 	- Its files must follow the conventions and rules laid out in this file (format.txt).
