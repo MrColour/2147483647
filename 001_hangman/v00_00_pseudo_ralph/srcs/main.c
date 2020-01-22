@@ -71,7 +71,7 @@ char	*strlwr(const char *str)
 #define cur_for(x) printf("\033[%dC", (x))
 #define cur_back(x) printf("\033[%dD", (x))
 #define cur_up(x) printf("\033[%dA", (x)); cursor_pos++;
-#define cur_down(x) printf("\033[%dB", (x)) cursor_pos++;
+#define cur_down(x) printf("\033[%dB", (x)); cursor_pos++;
 
 int		main(void)
 {
