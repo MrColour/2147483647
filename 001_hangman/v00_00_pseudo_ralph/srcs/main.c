@@ -9,7 +9,7 @@
  *      Visual Studio Code 1.Version: 1.38.1
  *
  * VERSION:
- *      0.0.0.2
+ *      0.0.0.3
  *
  * AUTHOR(s):
  *      Kevin Colour
@@ -21,7 +21,6 @@
 ****************************************************************/
 
 #include "pseudo_ralph.h"
-
 
 void	print_char_set(int *char_state)
 {
@@ -70,6 +69,8 @@ char	*strlwr(const char *str)
 
 #define cur_for(x) printf("\033[%dC", (x))
 #define cur_back(x) printf("\033[%dD", (x))
+#define cur_up(x) printf("\033[%dA", (x))
+#define cur_down(x) printf("\033[%dB", (x))
 
 int		main(void)
 {
@@ -82,6 +83,9 @@ int		main(void)
 
 	int	i;
 	int	guess;
+	struct timespec delta;
+	delta.tv_sec = 0;
+	delta.tv_nsec = 100;
 
 	i = 0;
 	str = strlwr(phrase);
@@ -93,11 +97,13 @@ int		main(void)
 			char_state[(int)guess] = RIGHT;
 		else
 			char_state[(int)guess] = WRONG;
+		printf("[GUESS: %c] \n", guess);
 		printf("\r");
-		printf("[GUESS: %c] ", guess);
 		print_char_set(char_state);
+		printf("\n");
+		cur_up(2);
 		fflush(stdout);
-		sleep(1);
+		usleep(300000);
 		i++;
 	}
 	return (0);

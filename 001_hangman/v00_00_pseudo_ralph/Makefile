@@ -10,7 +10,7 @@
  #           Extensions: ms-vscode-remote.remote-wsl
  #
  # VERSION:
- #      0.0.0.1
+ #      0.0.0.2
  #
  # AUTHOR(s):
  #      Kevin Colour
