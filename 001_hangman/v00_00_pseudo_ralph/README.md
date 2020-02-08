@@ -1,4 +1,4 @@
-# Pseudo Raplh
+# Pseudo Ralph
 
 Attempt Branch: 001_hangman
 
