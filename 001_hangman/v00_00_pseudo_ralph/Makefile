@@ -31,7 +31,8 @@ BINARY_DIR = bin/
 
 SRCS_FILES = \
 	main \
-	output_styling
+	output_styling \
+	render_game \
 
 SOURCE_FILES = $(addsuffix .c, $(addprefix srcs/, $(SRCS_FILES)))
 OBJS_FILES = $(addsuffix .o, $(SRCS_FILES))

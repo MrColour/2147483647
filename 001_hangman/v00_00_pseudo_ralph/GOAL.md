@@ -28,8 +28,8 @@ The <ATTEMPT> pseudo_ralph shall accomplish the following points:
 	these choices, correct guesses are to be marked green when guessed,
 	and wrong choices are to be marked red.
 3. A configuration file that shall have each possible hangman phrase.
-	Each phrase shall be seperated by a newline, phrases shall be only alpabetical characters
-	or the space character.
+	Each phrase shall be seperated by a newline, phrases shall be only
+	alpabetical characters or the space character.
 4. Must randomly choose one phrase from the config file.
 5. Matching is case insensative.
 6. Display the current progress on the phrase and where each correct letter
