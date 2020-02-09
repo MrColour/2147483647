@@ -21,4 +21,4 @@ The <ATTEMPT> pseudo_ralph shall accomplish the following points:
 
 # Gif Cookie:
 
-🍪
+<img align="left" height="250" src="https://github.com/MrColour/2147483647/blob/master/001_hangman/v00_00_pseudo_ralph/resources/pseudo_ralph1.gif" />
