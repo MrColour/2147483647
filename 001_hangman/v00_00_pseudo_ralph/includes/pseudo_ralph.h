@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pseudo_ralph.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: xinu <xinu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: kmira <kmira@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/16 02:53:42 by kmira             #+#    #+#             */
-/*   Updated: 2020/02/08 08:48:58 by xinu             ###   ########.fr       */
+/*   Updated: 2020/02/09 09:04:24 by kmira            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define WRONG -1
 # define RIGHT  1
 
-#define MAX_LIVES 20
+#define MAX_LIVES 7
 
 # define ANSI_RESET "\033[0m"
 # define ANSI_CLEAR "\33[2K"
