@@ -32,6 +32,7 @@ BINARY_DIR = bin/
 SRCS_FILES = \
 	main \
 	output_styling \
+	phrase_state \
 	render_game \
 
 SOURCE_FILES = $(addsuffix .c, $(addprefix srcs/, $(SRCS_FILES)))
@@ -40,10 +41,10 @@ OBJS = $(addsuffix .o, $(addprefix $(BINARY_DIR), $(SRCS_FILES)))
 
 all: $(NAME)
 
-$(NAME): $(OBJS_FILES)
+$(NAME): $(OBJS)
 	gcc -o $(NAME) $(FLAGS) $(INCLUDES) $(OBJS)
 
-$(OBJS_FILES): $(BINARY_DIR)
+$(OBJS): $(BINARY_DIR)
 	gcc -c $(FLAGS) $(INCLUDES) $(SOURCE_FILES)
 	mv $(OBJS_FILES) $(BINARY_DIR)
 

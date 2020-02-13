@@ -44,36 +44,90 @@ char	*strlwr(const char *str)
 	return (result);
 }
 
-void	update_phrase_state(char *phrase, char *phrase_state, char guess)
+#define BUFF_SIZE 30
+
+char	*get_phrase(void)
 {
 	int		i;
+	int		dict_fd;
+	int		phrase_id;
+	int		bytes_read;
+	int		newline_count;
+	char	buffer[BUFF_SIZE + 1];
 
-	i = 0;
-	while (phrase[i] != '\0')
+	bytes_read = 1;
+	newline_count = 0;
+	dict_fd = open("resources/dictonary", O_RDONLY);
+	while (bytes_read > 0)
 	{
-		if (phrase[i] == guess)
-			phrase_state[i] = guess;
-		i++;
-	}
-}
-
-int		phase_guessed(char *phrase_state)
-{
-	int		i;
-	int		result;
-
-	i = 0;
-	result = 1;
-	while (phrase_state[i] != '\0')
-	{
-		if (phrase_state[i] == '_')
+		bzero(buffer, sizeof(buffer));
+		bytes_read = read(dict_fd, buffer, BUFF_SIZE);
+		i = 0;
+		while (buffer[i] != '\0')
 		{
-			result = 0;
-			break;
+			if (buffer[i] == '\n')
+				newline_count++;
+			i++;
 		}
-		i++;
 	}
-	return (result);
+	newline_count--;
+	phrase_id = -1;
+	if (RAND_MAX <= newline_count)
+		printf("Not all phrases will be picked\n");
+	else if (newline_count != 0)
+		phrase_id = (rand() % (newline_count)) + 1;
+
+	bytes_read = 1;
+	newline_count = 0;
+	lseek(dict_fd, 0, SEEK_SET);
+	while (bytes_read > 0)
+	{
+		bzero(buffer, sizeof(buffer));
+		bytes_read = read(dict_fd, buffer, BUFF_SIZE);
+		i = 0;
+		while (buffer[i] != '\0')
+		{
+			if (buffer[i] == '\n')
+				newline_count++;
+			if (newline_count + 1 == phrase_id)
+				break ;
+			i++;
+		}
+		if (newline_count + 1 == phrase_id)
+			break ;
+	}
+	int	phrase_start;
+	int	phrase_end;
+
+	lseek(dict_fd, -bytes_read, SEEK_CUR);
+	lseek(dict_fd, i + 1, SEEK_CUR);
+	phrase_start = lseek(dict_fd, 0, SEEK_CUR);
+	printf("NEWLINES %d and choosen: %d\n", newline_count, phrase_id);
+	printf("Starts %d\n", phrase_start);
+	bytes_read = 1;
+	while (bytes_read > 0)
+	{
+		bzero(buffer, sizeof(buffer));
+		bytes_read = read(dict_fd, buffer, BUFF_SIZE);
+		i = 0;
+		while (buffer[i] != '\0' && buffer[i] != '\n')
+			i++;
+		if (buffer[i] == '\n')
+			break ;
+	}
+	phrase_end = lseek(dict_fd, 0, SEEK_CUR) - bytes_read + i;
+
+	char	*result;
+
+	if (phrase_id == 1)
+		phrase_start--;
+	result = malloc(sizeof(*result) * (phrase_end - phrase_start + 1));
+	lseek(dict_fd, phrase_start, SEEK_SET);
+	read(dict_fd, result, phrase_end - phrase_start);
+	result[phrase_end - phrase_start] = '\0';
+	printf("Phrase: %s, start: %d ends: %d\n", result, phrase_start, phrase_end);
+
+	return (NULL);
 }
 
 int		main(void)
@@ -83,6 +137,9 @@ int		main(void)
 	char	phrase[] = "Hangman game";
 	char	phrase_state[sizeof(phrase)];
 	char	*str;
+
+	srand(time(NULL));
+	get_phrase();
 
 	bzero(char_state, sizeof(char_state));
 	bzero(phrase_state, sizeof(phrase_state));
