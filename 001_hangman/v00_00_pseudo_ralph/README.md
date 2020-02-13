@@ -8,10 +8,10 @@ The <ATTEMPT> pseudo_ralph shall accomplish the following points:
 - [X] Display all the lowercase alphabetical ascii characters. From
 	these choices, correct guesses are to be marked green when guessed,
 	and wrong choices are to be marked red.
-- [ ] A configuration file that shall have each possible hangman phrase.
+- [X] A configuration file that shall have each possible hangman phrase.
 	Each phrase shall be seperated by a newline, phrases shall be only
 	alpabetical characters or the space character.
-- [ ] Must randomly choose one phrase from the config file.
+- [X] Must randomly choose one phrase from the config file.
 - [X] Matching is case insensative.
 - [X] Display the current progress on the phrase and where each correct letter
 	is in such phrase.

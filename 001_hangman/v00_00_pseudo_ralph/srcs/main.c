@@ -128,23 +128,24 @@ char	*get_phrase(void)
 	result[phrase_end - phrase_start] = '\0';
 	printf("Phrase: %s, start: %d ends: %d\n", result, phrase_start, phrase_end);
 
-	return (NULL);
+	return (result);
 }
 
 int		main(void)
 {
 	int		char_state[128];
 
-	char	phrase[] = "Hangman game";
-	char	phrase_state[sizeof(phrase)];
+	char	*phrase;
+	char	*phrase_state;
 	char	*str;
 
 	srand(time(NULL));
-	get_phrase();
+	phrase = get_phrase();
+	phrase_state = malloc(sizeof(*phrase_state) * (strlen(phrase) + 1));
 
 	bzero(char_state, sizeof(char_state));
-	bzero(phrase_state, sizeof(phrase_state));
-	memset(phrase_state, '_', sizeof(phrase_state) - 1);
+	bzero(phrase_state, sizeof(*phrase_state) * (strlen(phrase) + 1));
+	memset(phrase_state, '_', sizeof(*phrase_state) * (strlen(phrase)));
 
 	int	i;
 	int	guess;
@@ -164,9 +165,9 @@ int		main(void)
 	str = strlwr(phrase);
 	printf("\n");
 	srand(time(0));
-	while (i < 100)
+	while (i < 200)
 	{
-		guess = (rand() % ('z' - 'a')) + 'a';
+		guess = (rand() % ('z' - 'a' + 1)) + 'a';
 		printf(ANSI_CLEAR"\r");
 
 		if (char_state[(int)guess] == 0)
