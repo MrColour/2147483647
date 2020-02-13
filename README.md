@@ -16,4 +16,5 @@ In order to become the coder I want to become I need lots of experience; and so 
 TODO:
 - [X] README.md
 - [ ] format method
-- [ ] 001_hangman
+- [X] 001_hangman
+- [X] 002_tictactoe
