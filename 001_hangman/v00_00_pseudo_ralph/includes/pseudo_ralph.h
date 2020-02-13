@@ -6,7 +6,7 @@
 /*   By: kmira <kmira@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/16 02:53:42 by kmira             #+#    #+#             */
-/*   Updated: 2020/02/13 11:45:22 by kmira            ###   ########.fr       */
+/*   Updated: 2020/02/13 12:08:13 by kmira            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define WRONG -1
 # define RIGHT  1
 
-#define MAX_LIVES 25
+#define MAX_LIVES 6
 
 # define ANSI_RESET "\033[0m"
 # define ANSI_CLEAR "\33[2K"

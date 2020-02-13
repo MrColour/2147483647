@@ -9,14 +9,14 @@
  *      Visual Studio Code 1.Version: 1.38.1
  *
  * VERSION:
- *      0.0.0.4
+ *      0.0.0.5
  *
  * AUTHOR(s):
  *      Kevin Colour
  *
  * DATES:
  *      Created:			Sat Jan 11 21:04:30 PST 2020
- *		Verified Execute:	Sat Feb  8 08:58:44 PST 2020
+ *		Verified Execute:	Thu Feb 13 12:04:51 PST 2020
  *
 ****************************************************************/
 
@@ -103,8 +103,6 @@ char	*get_phrase(void)
 	lseek(dict_fd, -bytes_read, SEEK_CUR);
 	lseek(dict_fd, i + 1, SEEK_CUR);
 	phrase_start = lseek(dict_fd, 0, SEEK_CUR);
-	printf("NEWLINES %d and choosen: %d\n", newline_count, phrase_id);
-	printf("Starts %d\n", phrase_start);
 	bytes_read = 1;
 	while (bytes_read > 0)
 	{
@@ -126,8 +124,6 @@ char	*get_phrase(void)
 	lseek(dict_fd, phrase_start, SEEK_SET);
 	read(dict_fd, result, phrase_end - phrase_start);
 	result[phrase_end - phrase_start] = '\0';
-	printf("Phrase: %s, start: %d ends: %d\n", result, phrase_start, phrase_end);
-
 	return (result);
 }
 
