@@ -17,4 +17,4 @@ TODO:
 - [X] README.md
 - [ ] format method
 - [X] 001_hangman
-- [X] 002_tictactoe
+- [ ] 002_tictactoe
