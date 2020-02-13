@@ -25,6 +25,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <time.h>
 
 char	*strlwr(const char *str)
 {
@@ -162,6 +163,7 @@ int		main(void)
 	wrong_guesses = 0;
 	str = strlwr(phrase);
 	printf("\n");
+	srand(time(0));
 	while (i < 100)
 	{
 		guess = (rand() % ('z' - 'a')) + 'a';
@@ -189,9 +191,10 @@ int		main(void)
 		printf("\n");
 		print_phrase_state(phrase_state);
 		printf("\n");
-		cur_up(4);
 		if (wrong_guesses >= MAX_LIVES)
 		{
+			usleep(1000000);
+			cur_up(4);
 			print_game_over();
 			break ;
 		}
@@ -200,10 +203,11 @@ int		main(void)
 			print_game_win();
 			break ;
 		}
-		usleep(300000);
+		cur_up(4);
+		usleep(500000);
 		i++;
 	}
-	cur_up(2);
-	printf(ANSI_CLEAR"\r");
+	// cur_up(2);
+	// printf("\r");
 	return (0);
 }

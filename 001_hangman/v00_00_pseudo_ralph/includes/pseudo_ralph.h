@@ -6,7 +6,7 @@
 /*   By: xinu <xinu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/16 02:53:42 by kmira             #+#    #+#             */
-/*   Updated: 2020/02/12 22:53:47 by xinu             ###   ########.fr       */
+/*   Updated: 2020/02/13 10:14:27 by xinu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define WRONG -1
 # define RIGHT  1
 
-#define MAX_LIVES 20
+#define MAX_LIVES 7
 
 # define ANSI_RESET "\033[0m"
 # define ANSI_CLEAR "\33[2K"
