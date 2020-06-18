@@ -18,3 +18,8 @@ TODO:
 - [ ] format method
 - [X] 001_hangman
 - [ ] 002_tictactoe
+
+### June 18, 2020:
+Although I haven't made any changes here I have most certainly been coding. I still have not forgotten my words, [ASSERT_game](https://github.com/ASSERT-game) is a link to the projects I have been working on. They range from chess, to PacMan to attempts at a rendering engine.
+
+Heart of the Code.
