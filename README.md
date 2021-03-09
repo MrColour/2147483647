@@ -27,4 +27,7 @@ Heart of the Code.
 ### July 17, 2020:
 Still have not forgotten my words. Continuing to code, wonder how far I will get on my current project [JELLYFISH](https://github.com/aquaviverium). I don't think I will finish it anytime soon, or that I currently have the skills to finish it how I want, but I have to start somewhere. Hopefully I will have time to revisit this project when I have become a better coder. I'm also begining to wonder how many lines of code I have written up to date, hopefully I write many with this current project.
 
+### March 9, 2021:
+I have not forgotten, I am still coding. I have made various games too since I last was here! I did end up making tic tac toe, and even an AI that I can't beat! Heck I even made pacman, twice! The second one looks pretty good, and is fairly extensible. Mainly have been building some tools in SDL allowing me to create games faster and it has snowballed from there. Also coded over 5,000 lines of C code for Advent of Code! I should make a program to count how many lines I have actually written amoung all my github repos.
+
 As before one line at a time!
